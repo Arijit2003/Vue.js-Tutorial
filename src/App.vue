@@ -1,17 +1,23 @@
 
 <template>
-    <input type="text" v-model = "myName" /> </br>
-    <button type = "button" @click = "show">Greet</button>
-    {{ myName }}
+    <input type="text" :value = "count" /> </br>
+    <button type = "button" @click = "increment">+</button>
+    <button type = "button" @click = "decrement">-</button>
+
 </template>
 
 
 <script setup>
 
   import { ref } from 'vue';
-  const myName = ref('Arijit Modak');
-  const show = () =>{
-    alert(txt1.value.value);
+  
+  const count = ref(0);
+  
+  const increment = () => {
+    count.value ++;
+  }
+  const decrement = () => {
+    count.value --;
   }
 
 </script>
