@@ -1,18 +1,27 @@
-<script setup>
-import { ref } from 'vue';
 
-const myName = ref('Arijit M.');
+<template>
+    <p v-bind:class="[firstStyle,mySecondStyle]">
+      {{"Hello Mr." + myName }}
+    </p>
+</template>
+
+
+<script setup>
+  import { ref } from 'vue';
+  const firstStyle = ref('firstStyle'); 
+  const mySecondStyle = ref('secondStyle')
+  const myName = ref('Arijit M.');
 
 </script>
 
-<template>
-    <input type = "text" v-bind:value = "myName" />
-</template>
 
 <style scoped>
-  h1 {
+  .firstStyle {
     color: red;
     text-decoration: underline;
+    background-color: blue;
+  }
+  .secondStyle {
     background-color: blue;
   }
 
