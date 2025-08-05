@@ -1,13 +1,13 @@
 
 <template>
 
-  <ParentComponent/>
+  <EmployeeListComponent/>
 
 </template>
 
 
 <script setup>
-import ParentComponent from './components/ParentComponent.vue';
+import EmployeeListComponent from './components/EmployeeListComponent.vue';
 </script>
 
 
