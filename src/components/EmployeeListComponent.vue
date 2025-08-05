@@ -8,14 +8,16 @@
                 <th>Emp Name</th>
                 <th>Salary</th>
                 <th>Department</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="employee in employees" :key="employee.empid">
+            <tr v-for="(employee, index) in employees" :key="employee.empid">
                 <td>{{ employee.empid }}</td>
                 <td>{{ employee.empName }}</td>
                 <td>{{ employee.salary }}</td>
                 <td>{{ employee.deptName }}</td>
+                <td> <button type="button" @click = "deleteEmployee(index)">Delete</button></td>
             </tr>
             </tbody>
         </table>
@@ -24,13 +26,15 @@
   
   <script setup>
   import { ref } from 'vue';
+  import { empList } from './employeedata';
   
   // Define the fruits array as a reactive reference
-  const employees = ref([
-    {empid: 101, empName: 'Ajay', salary: 1000, deptName: 'HR'},
-    {empid: 102, empName: 'Vijay', salary: 2000, deptName: 'Finance'},
-    {empid: 103, empName: 'Ravi', salary: 3000, deptName: 'IT'},
-    {empid: 104, empName: 'Sita', salary: 4000, deptName: 'Marketing'},
-    {empid: 105, empName: 'Geeta', salary: 5000, deptName: 'Sales'},
-  ]);
+  // u
+  const employees = ref(empList);
+
+  const deleteEmployee = (index) => {
+    // Remove the employee at the specified index
+    const flag = confirm("Are you sure you want to delete this employee?");
+    if(flag) employees.value.splice(index, 1);
+  };
   </script>
